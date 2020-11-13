@@ -22,30 +22,10 @@ const createPhotoRecord = () => {
   Photo.create(record);
 };
 
-// const createUserRecord = () => {
-//   let randomFriends = Math.floor(Math.random()* 101);
-//   let randomReviews = Math.floor(Math.random()* 101);
-//   let record = {
-//     "username": `${faker.internet.userName()}`,
-//     "friends": randomFriends,
-//     "reviews": randomReviews
-//   }
-//   User.create(record);
-// }
-
-// const createRestaurantRecord = () => {
-//   let record = {
-//     "name": `${faker.lorem.word()}`
-//   }
-// Restaurant.create(record);
-// }
-
 const seedDB = (entries) => {
   let created = 1;
   while (created < entries) {
     createPhotoRecord();
-    //createUserRecord();
-    //createRestaurantRecord()
     created++
   }
 }

@@ -1,6 +1,4 @@
 const Photo = require('../models/Photo');
-const User = require('../models/User');
-const Restaurant = require('../models/Restaurant');
 
 module.exports.getPhotos = async (req, res, next) => {
   try {
@@ -34,23 +32,4 @@ module.exports.addPhoto = async (req, res, next) => {
     })
   }
 }
-
-module.exports.addUser = async (req, res, next) => {
-  try {
-    const { email, username, friends, review } = req.body;
-    const user = await User.create(req.body);
-    return res.status(201).json({
-      success: true,
-      data: user
-    })
-  }
-  catch{
-    return res.send(500).json({
-      success: false,
-      error:'SERVER ERROR'
-    })
-  }
-};
-
-
 
