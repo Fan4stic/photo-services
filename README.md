@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Photo Module
 
 ## Related Projects
 
