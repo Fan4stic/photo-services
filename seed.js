@@ -17,7 +17,8 @@ const createPhotoRecord = () => {
       "username": `${faker.internet.userName()}`,
       "friends": randomFriends,
       "reviews": randomReviews,
-      "avatar": `${faker.image.avatar()}`
+      "avatar": `${faker.image.avatar()}`,
+      "yelpElite": !! Math.floor(Math.random() * 2)
     },
     "restaurant_id": restaurant_id_arr[randomRestaurant_id]
   }
