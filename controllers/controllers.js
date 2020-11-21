@@ -2,11 +2,11 @@ const Photo = require('../models/Photo');
 
 module.exports.getPhotos = async (req, res, next) => {
   try {
-    const photos = await Photo.find({"restaurant_id": `${req.params.id}`});
+    const photos = await Photo.find();
     return res.status(200).json({
       success: true,
       count: photos.length,
-      data: photos
+      photos: photos
     })
   } catch (err) {
     return res.send(500).json({
@@ -15,6 +15,9 @@ module.exports.getPhotos = async (req, res, next) => {
     })
   }
 };
+
+
+
 
 module.exports.addPhoto = async (req, res, next) => {
   try{
