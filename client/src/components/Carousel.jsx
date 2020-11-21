@@ -11,10 +11,12 @@ class Carousel extends React.Component {
     this.state = {
       photos: [],
       naturePhotos: ['https://www.w3schools.com/howto/img_woods.jpg', 'https://www.w3schools.com/howto/img_5terre.jpg', 'https://www.w3schools.com/howto/img_mountains.jpg', 'https://www.w3schools.com/howto/img_lights.jpg', 'https://www.w3schools.com/howto/img_snow.jpg'],
-      modalActive: false
+      modalActive: false,
+      modalPhoto: {}
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.setMainModal = this.setMainModal.bind(this);
   }
 
   componentDidMount() {
@@ -31,11 +33,15 @@ class Carousel extends React.Component {
     this.setState({modalActive: false})
   }
 
+  setMainModal(target) {
+    this.setState({modalPhoto: target})
+  }
+
   render() {
     return(
       <div className="container">
-        <Track photos={this.state.naturePhotos} openModal={this.openModal}/>
-        {this.state.modalActive && <Modal photos={this.state.naturePhotos} closeModal={this.closeModal} />}
+        <Track photos={this.state.photos} openModal={this.openModal} setMainModal={this.setMainModal}/>
+        {this.state.modalActive && <Modal photos={this.state.photos} modalPhoto={this.state.modalPhoto} setMainModal={this.setMainModal} closeModal={this.closeModal}/>}
       </div>
     )
   }
