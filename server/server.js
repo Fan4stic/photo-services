@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 const DBconnection = require('../db/connection');
 
-app.use('/', router);
+app.use(express.static(__dirname + `/../public`))
+app.use('/api/restaurants', router)
 
-
-const port = 3000;
+const port = 3003;
 app.listen(port, () => console.log(`now listening on port ${port}`));
 
