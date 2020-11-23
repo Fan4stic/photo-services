@@ -15,7 +15,9 @@ const PhotoSchema = new mongoose.Schema({
   user: {
     "username": String,
     "friends": Number,
-    "reviews": Number
+    "reviews": Number,
+    "avatar": String,
+    "yelpElite": Boolean
   },
   restaurant_id: {
     type: Number
@@ -23,3 +25,6 @@ const PhotoSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Photo', PhotoSchema);
+
+// add yelp elite
+// add avatar

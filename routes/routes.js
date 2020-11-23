@@ -3,8 +3,7 @@ const router = express.Router();
 const {getPhotos} = require('../controllers/controllers')
 
 router
-.route('/api/restaurants/:id/photos')
+.route('/')
 .get(getPhotos);
 
 module.exports = router;
-
