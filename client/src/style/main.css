@@ -53,6 +53,7 @@
   float: left;
   width: 20%;
   flex-grow: 1;
+  padding: 1px;
 }
 
 /* Add a transparency effect for thumnbail images
@@ -84,10 +85,22 @@
 
 /* Modal Content/Box */
 .modal-content {
-  border-radius: 25px;
+/*
+border-radius: 25px;
   background-color: #fefefe;
-  margin: auto; /* 15% from the top and centered */
-  width: 60%; /* Could be more or less, depending on screen size */
+  margin: auto;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  */
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #fefefe;
+  margin: auto;
+  width: 60%;
   height: 60%;
 }
 
@@ -107,31 +120,261 @@
 }
 
 .modal-column-left {
+  /*
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   float: left;
   height: 100%;
   width: 67%;
   background-color: black;
+  align-content: stretch;
+  */
+
+  /*flex item properties*/
+  order: 0;
+  flex: 3 1 auto;
+  align-self: stretch;
+  background-color: black;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+
 }
 
 .modal-column-left-main {
+  /*
   margin: auto;
+  display: inline-block;
+  */
+
+  /*flex item properties*/
+  order: 1;
+  flex: 2 1 auto;
+  align-self: stretch;
+
+  /*container properties*/
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
-.modal-column-left-info {
-  background-color: red;
+.modal-column-left-main-photo {
+  height: 100%;
+  width: 100%;
 }
+
+.modal-column-left-main-info {
+  /*block item properties*/
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-prev {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  background-color: black;
+  color: white;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-column-left-next {
+  /*flex item properties*/
+  order: 2;
+  flex: 1 1 auto;
+  align-self: stretch;
+  background-color: black;
+  color: white;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.modal-column-left-info-upper {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+}
+.modal-column-left-info-upper-description {
+  /*flex properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.modal-column-left-info-upper-date {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.modal-column-left-info-lower {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+
+}
+
+.modal-column-left-info-lower-user {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 0 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-info-lower-user-avatar {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 10%;
+}
+
+.modal-column-left-info-lower-user-stats {
+  /*flex item properties*/
+  order: 0;
+  flex: 2 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-user-stats-username {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.modal-column-left-info-lower-user-stats-icons {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+}
+
+.modal-column-left-info-lower-user-stats-elite {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+}
+
+
+.modal-column-left-info-lower-share-report {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+
 
 .modal-column-right{
-  float: right;
-  height: 100%;
-  width: 33%;
-  background-color: white;
+  /*flex item properties*/
+
+  /*flex container properties*/
+
 }
+
+
 
 .modal-column-right-header {
   margin: auto;
-  padding: 15px;
+  padding: 10%x;
 }
 
 .modal-column-right-flexcontainer {
@@ -139,5 +382,5 @@
   flex-direction: column;
   overflow-y: scroll;
   height: 80%;
-  padding: 10px;
+  padding: 5%;
 }

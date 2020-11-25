@@ -5,12 +5,29 @@ import ModalInfo from './ModalInfo.jsx';
 const Modal = (props) => {
   return(
     <div className="modal">
+
     <span className="close" onClick={() => props.closeModal()}>close &times;</span>
+
       <div className="modal-content">
+
       <div className="modal-column-left">
-        <img className="modal-column-left-main" src={props.modalPhoto.url}></img>
-        {false && <ModalInfo info={props.modalPhoto}/>}
+
+        <div className="modal-column-left-prev">
+          <a className="modal-column-left-prev-arrow">&#10094;</a>
+        </div>
+
+        <div className="modal-column-left-main">
+          <img className="modal-column-left-main-photo"src={props.modalPhoto.url}></img>
+          <ModalInfo className="modal-column-left-main-info"info={props.modalPhoto}/>
+        </div>
+
+
+        <div className="modal-column-left-next">
+          <a className="modal-column-left-next-arrow">&#10095;</a>
+        </div>
+
       </div>
+
       <div className="modal-column-right">
         <h3 className="modal-column-right-header">Photos For Restaurant</h3>
         <div className="modal-column-right-flexcontainer">
