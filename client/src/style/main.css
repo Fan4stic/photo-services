@@ -8,10 +8,10 @@
 }
 
 
-/*.cursor {
-   Add a pointer when hovering over the thumbnail images
+.cursor {
+   /*Add a pointer when hovering over the thumbnail images*/
   cursor: pointer;
-}*/
+}
 
 /* Next & previous buttons */
 .prev,
@@ -67,7 +67,10 @@
 }
 /* The Modal (background) */
 .modal {
-  display: flex; /* Hidden by default */
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -93,23 +96,40 @@ border-radius: 25px;
   height: 60%;
   display: flex;
   */
+  /*flex item properties*/
 
+  /*flex container properties*/
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: stretch;
   background-color: #fefefe;
   margin: auto;
-  width: 60%;
-  height: 60%;
+  width: 90%;
+  height: 80%;
+  margin-top: 0px;
 }
 
 /* The Close Button */
 .close {
   color: #aaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-top: auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: space-around;
+  align-items: flex-start;
+
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 95%;
 }
 
 .close:hover,
@@ -154,7 +174,7 @@ border-radius: 25px;
 
   /*flex item properties*/
   order: 1;
-  flex: 2 1 auto;
+  flex: 8 1 auto;
   align-self: stretch;
 
   /*container properties*/
@@ -174,7 +194,7 @@ border-radius: 25px;
   width: 100%;
   bottom: 0px;
   color: white;
-  background-color: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,.5);
 
   /*flex container properties*/
   display: flex;
@@ -198,6 +218,16 @@ border-radius: 25px;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.modal-column-left-prev-arrow:hover,
+.modal-column-left-prev-arrow:focus {
+  cursor: pointer;
+}
+
+.modal-column-left-next-arrow:hover,
+.modal-column-left-next-arrow:focus {
+  cursor: pointer;
 }
 
 .modal-column-left-next {
@@ -230,20 +260,25 @@ border-radius: 25px;
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
-  padding: 10px;
+  padding: 8px;
+  margin: 4px;
+  border-bottom: 1px white solid;
 }
 .modal-column-left-info-upper-description {
   /*flex properties*/
   order: 0;
   flex: 1 1 auto;
-  align-self: stretch;
+  align-self: flex-start;
+  padding: 4px 4px 4px 4px;
 }
 
 .modal-column-left-info-upper-date {
   /*flex item properties*/
   order: 0;
   flex: 1 1 auto;
-  align-self: stretch;
+  align-self: flex-start;
+  opacity: 0.5;
+  padding: 4px 4px 4px 4px;
 }
 
 .modal-column-left-info-lower {
@@ -259,21 +294,23 @@ border-radius: 25px;
   justify-content: space-between;
   align-content: flex-start;
   align-items: flex-start;
-  padding: 10px;
+  padding: 8px;
+  border-bottom: 3px;
+  margin: 4px;
 
 }
 
 .modal-column-left-info-lower-user {
   /*flex item properties*/
   order: 0;
-  flex: 0 0 auto;
+  flex: 2 0 auto;
   align-self: stretch;
 
   /*flex container properties*/
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
 }
@@ -288,10 +325,10 @@ border-radius: 25px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   align-items: center;
-  padding: 10%;
+  padding: 10px;
 }
 
 .modal-column-left-info-lower-user-stats {
@@ -313,7 +350,7 @@ border-radius: 25px;
   /*flex item properties*/
   order: 0;
   flex: 1 1 auto;
-  align-self: stretch;
+  align-self: flex-start;
 }
 
 .modal-column-left-info-lower-user-stats-icons {
@@ -321,6 +358,30 @@ border-radius: 25px;
   order: 0;
   flex: 1 1 auto;
   align-self: flex-start;
+  justify-content: space-between;
+  fill: rgb(117, 114, 128);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-user-stats-icons-friends {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+.modal-column-left-info-lower-user-stats-icons-reviews {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
 }
 
 .modal-column-left-info-lower-user-stats-elite {
@@ -334,14 +395,15 @@ border-radius: 25px;
 .modal-column-left-info-lower-share-report {
   /*flex item properties*/
   order: 0;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   align-self: stretch;
+  fill: rgb(117, 114, 128);
 
   /*flex container properties*/
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: center;
   align-items: center;
 }
@@ -349,38 +411,109 @@ border-radius: 25px;
 .modal-column-left-info-lower-helpful-nothelpful {
   /*flex item properties*/
   order: 0;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   align-self: stretch;
+  fill: rgb(117, 114, 128);
 
   /*flex container properties*/
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: center;
   align-items: center;
 }
 
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful {
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: center;
+  padding: 1px 4px 1px 4px;
+  border: 1px white solid;
+  fill: rgb(117, 114, 128);
+  background-color: black;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful:hover {
+  cursor: pointer;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful {
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: center;
+  padding: 1px 4px 1px 4px;
+  border: 1px white solid;
+  background-color: black;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful:hover {
+  cursor: pointer;
+}
 
 
 .modal-column-right{
   /*flex item properties*/
 
   /*flex container properties*/
-
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
 }
 
 
 
 .modal-column-right-header {
-  margin: auto;
-  padding: 10%x;
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 16px 16px 8px 16px
+}
+
+.modal-column-right-header-title {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  margin: 0px
+}
+
+.modal-column-right-header-subtitle {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
 }
 
 .modal-column-right-flexcontainer {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 80%;
-  padding: 5%;
+  padding: 16px 16px 0px 16px;
 }

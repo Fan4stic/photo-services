@@ -12,7 +12,9 @@ class Carousel extends React.Component {
       photos: [],
       naturePhotos: ['https://www.w3schools.com/howto/img_woods.jpg', 'https://www.w3schools.com/howto/img_5terre.jpg', 'https://www.w3schools.com/howto/img_mountains.jpg', 'https://www.w3schools.com/howto/img_lights.jpg', 'https://www.w3schools.com/howto/img_snow.jpg'],
       modalActive: false,
-      modalPhoto: {}
+      modalPhoto: {},
+      next: {},
+      prev: {}
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -20,9 +22,8 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('api/restaurants')
-    .then( ({data}) => this.setState({photos: data.photos.slice(0,8)}))
-    //showSlides(this.state.slideIndex);
+    axios.get('/api/restaurants/:resID/photos')
+    .then( ({data}) => this.setState({photos: data.photos.slice(0,30)}))
   }
 
   openModal () {
