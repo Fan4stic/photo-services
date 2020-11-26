@@ -7,8 +7,8 @@ const Modal = (props) => {
     <div className="modal">
       <div className="close" onClick={() => props.closeModal()}>close &times;</div>
       <div className="modal-content">
-        <LeftColumn setMainModal={props.setMainModal} modalPhoto={props.modalPhoto} modalPhoto={props.modalPhoto} />
-        <RightColumn photos={props.photos} />
+        <LeftColumn setMainModal={props.setMainModal} photos={props.photos} modalPhoto={props.modalPhoto} nextPhoto={props.nextPhoto}  prevPhoto={props.prevPhoto}/>
+        <RightColumn photos={props.photos} setMainModal={props.setMainModal}/>
       </div>
     </div>
   )

@@ -6,10 +6,10 @@ import Next from './Next.jsx';
 const LeftColumn = (props) => {
   return (
     <div className="modal-column-left">
-      <Previous setMainModal={props.setMainModal} />
+      <Previous photos={props.photos} modalPhoto={props.modalPhoto} setMainModal={props.setMainModal} prevPhoto={props.prevPhoto}/>
       <ModalMain modalPhoto={props.modalPhoto} />
-      <Next setMainModal={props.setMainModal}/>
-  </div>
+      <Next photos={props.photos} modalPhoto={props.modalPhoto} setMainModal={props.setMainModal} nextPhoto={props.nextPhoto}/>
+    </div>
   )
 }
 
