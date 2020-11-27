@@ -50,26 +50,26 @@ const ModalInfo = (props) => {
         </div>
 
         <div className="modal-column-left-info-lower-share-report">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="icon_svg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" className="share-icon">
             <path d="M17.714 6.429L13 10.357V7.325c-1 0-5.097 1.47-6.286 3.621.274-3.08 4.286-5.5 6.286-5.5V2.5l4.714 3.929zM3 4v10h11v-2.5l1-1V15H2V3h8.5l-1 1H3z"/>
           </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="icon_svg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" className="report-icon">
             <path d="M6 10V3c4.976 1.098 4.024-1 8 0v7c-4.024-.976-3.024 1.024-8 0zM4 2h1v14H4V2z"/>
           </svg>
         </div>
 
         <div className="modal-column-left-info-lower-helpful-nothelpful">
           <div className="modal-column-left-info-lower-helpful-nothelpful-isHelpful">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="icon_svg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="icon_svg">
               <path d="M15 10L9 3l-6 7h4v5h4v-5h4z"/>
             </svg>
-            <p>Helpful</p>
+            Helpful
           </div>
           <div className="modal-column-left-info-lower-helpful-nothelpful-isNotHelpful">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="icon_svg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="icon_svg">
               <path d="M3 8l6 7 6-7h-4V3H7v5H3z"/>
             </svg>
-            <p>Not helpful</p>
+            Not Helpful
           </div>
         </div>
 
