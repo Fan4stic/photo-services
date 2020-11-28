@@ -8,10 +8,10 @@
 }
 
 
-/*.cursor {
-   Add a pointer when hovering over the thumbnail images
+.cursor {
+   /*Add a pointer when hovering over the thumbnail images*/
   cursor: pointer;
-}*/
+}
 
 /* Next & previous buttons */
 .prev,
@@ -53,6 +53,7 @@
   float: left;
   width: 20%;
   flex-grow: 1;
+  padding: 1px;
 }
 
 /* Add a transparency effect for thumnbail images
@@ -66,7 +67,10 @@
 }
 /* The Modal (background) */
 .modal {
-  display: flex; /* Hidden by default */
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -84,60 +88,531 @@
 
 /* Modal Content/Box */
 .modal-content {
-  border-radius: 25px;
+/*
+border-radius: 25px;
   background-color: #fefefe;
-  margin: auto; /* 15% from the top and centered */
-  width: 60%; /* Could be more or less, depending on screen size */
+  margin: auto;
+  width: 60%;
   height: 60%;
+  display: flex;
+  */
+  /*flex item properties*/
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #fefefe;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  margin-top: 0px;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  color: #fff;
+  fill: #fff;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+
+
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: space-around;
+  align-items: flex-start;
+
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 95%;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
   text-decoration: none;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .modal-column-left {
+  /*
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   float: left;
   height: 100%;
   width: 67%;
   background-color: black;
+  align-content: stretch;
+  */
+
+  /*flex item properties*/
+  order: 0;
+  flex: 3 1 auto;
+  align-self: stretch;
+  background-color: black;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+
 }
 
 .modal-column-left-main {
+  /*
   margin: auto;
+  display: inline-block;
+  */
+
+  /*flex item properties*/
+  order: 1;
+  flex: 8 1 auto;
+  align-self: stretch;
+
+  /*container properties*/
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
-.modal-column-left-info {
-  background-color: red;
+.modal-column-left-main-photo {
+  height: 100%;
+  width: 100%;
+}
+
+.modal-column-left-main-info {
+  /*block item properties*/
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  background: rgba(0,0,0,.7);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-prev {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  background-color: black;
+  color: white;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-column-left-prev-arrow:hover,
+.modal-column-left-prev-arrow:focus {
+  cursor: pointer;
+}
+
+.modal-column-left-next-arrow:hover,
+.modal-column-left-next-arrow:focus {
+  cursor: pointer;
+}
+
+.modal-column-left-next {
+  /*flex item properties*/
+  order: 2;
+  flex: 1 1 auto;
+  align-self: stretch;
+  background-color: black;
+  color: white;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.modal-column-left-info-upper {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 8px;
+  margin: 4px;
+  border-bottom: 1px #eeeeef solid;
+}
+.modal-column-left-info-upper-description {
+  /*flex properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  padding: 4px 4px 0px 4px;
+}
+
+.modal-column-left-info-upper-date {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  opacity: 0.5;
+  padding: 0px 4px 4px 4px;
+}
+
+.modal-column-left-info-lower {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 8px;
+  border-bottom: 3px;
+  margin: 4px;
+
+}
+
+.modal-column-left-info-lower-user {
+  /*flex item properties*/
+  order: 0;
+  flex: 2 0 50%;
+  align-self: stretch;
+  color:#fff;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-info-lower-user-avatar {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: 0px 10px 10px 10px;
+}
+
+.modal-column-left-info-lower-user-stats {
+  /*flex item properties*/
+  order: 0;
+  flex: 2 1 auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-user-stats-username {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  padding-bottom: 4px;
+}
+
+.modal-column-left-info-lower-user-stats-icons {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  justify-content: flex-start;
+  fill: rgb(117, 114, 128);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-user-stats-icons-friends {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-info-lower-user-stats-icons-reviews {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-info-lower-user-stats-elite {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  color: #ff523d;
+}
+
+.modal-column-left-info-lower-user-stats-elite:hover {
+
+  cursor: pointer;
+}
+
+
+.modal-column-left-info-lower-share-report {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 15%;
+  align-self: center;
+  fill: rgb(117, 114, 128);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.report-icon:hover,
+.report-icon:focus {
+  fill: red;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.share-icon:hover,
+.share-icon:focus {
+  fill:#fff;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 35%;
+  align-self: flex-center;
+  fill: rgb(117, 114, 128);
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: bold;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful {
+  /*flex container properties*/
+  display: flex;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #757280;
+  background: transparent;
+  box-shadow: none;
+  white-space: nowrap;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful:hover {
+  cursor: pointer;
+  background-color: #fff;
+
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful {
+  /*flex container properties*/
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #757280;
+  background: transparent;
+  box-shadow: none;
+  white-space: nowrap;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful-active {
+  background-color: #fff;
 }
 
 .modal-column-right{
-  float: right;
-  height: 100%;
-  width: 33%;
-  background-color: white;
-}
+  /*flex item properties*/
 
-.modal-column-right-header {
-  margin: auto;
-  padding: 15px;
-}
-
-.modal-column-right-flexcontainer {
+  /*flex container properties*/
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+  padding: 6px 6px 6px 6px;
+}
+
+
+
+.modal-column-right-header {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 16px 16px 8px 16px
+}
+
+.modal-column-right-header-title {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  margin: 0px;
+  font-size: 20px;
+}
+
+.modal-column-right-header-subtitle {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  color: #00838f;
+  font-size: 14px;
+}
+
+.modal-column-right-header-subtitle:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ModalFlexPhotosContainer {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
+  display: flex;
   overflow-y: scroll;
-  height: 80%;
-  padding: 10px;
+  padding: 16px 16px 0px 16px;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  max-width: inherit;
+}
+
+.ModalFlexPhotos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.rectangle {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  width: 100%;
+}
+
+.square {
+  display: flex;
+  margin: 4px;
+  padding: 4px;
+  order: 0;
+  width: 100%;
+  align-self: auto;
 }

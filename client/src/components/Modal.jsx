@@ -1,22 +1,19 @@
 import React from 'react';
-import ModalThumbnail from './ModalThumbnail.jsx';
-import ModalInfo from './ModalInfo.jsx';
+import LeftColumn from './LeftColumn.jsx';
+import RightColumn from './RightColumn.jsx';
 
 const Modal = (props) => {
   return(
     <div className="modal">
-    <span className="close" onClick={() => props.closeModal()}>close &times;</span>
+      <div className="close" onClick={() => props.closeModal()}>
+        Close
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+          <path d="M17.657 19.071L12 13.414l-5.657 5.657-1.414-1.414L10.586 12 4.929 6.343l1.414-1.414L12 10.586l5.657-5.657 1.414 1.414L13.414 12l5.657 5.657-1.414 1.414z"/>
+        </svg>
+      </div>
       <div className="modal-content">
-      <div className="modal-column-left">
-        <img className="modal-column-left-main" src={props.modalPhoto.url}></img>
-        {false && <ModalInfo info={props.modalPhoto}/>}
-      </div>
-      <div className="modal-column-right">
-        <h3 className="modal-column-right-header">Photos For Restaurant</h3>
-        <div className="modal-column-right-flexcontainer">
-          {props.photos.map((photo, index) => <ModalThumbnail photo={photo} key={index} setMainModal={props.setMainModal}/>)}
-        </div>
-      </div>
+        <LeftColumn setMainModal={props.setMainModal} photos={props.photos} modalPhoto={props.modalPhoto} nextPhoto={props.nextPhoto}  prevPhoto={props.prevPhoto} helpActive={props.helpActive} helpActiveButton={props.helpActiveButton}/>
+        <RightColumn photos={props.photos} setMainModal={props.setMainModal} photoChunker={props.photoChunker}/>
       </div>
     </div>
   )
