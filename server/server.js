@@ -6,7 +6,7 @@ const DBconnection = require('../db/connection');
 const {getPhotos} = require('../controllers/controllers')
 
 app.use(express.static(__dirname + `/../public`))
-app.get('/', getPhotos)
+app.get('/api/restaurants/:resID/photos', getPhotos)
 
 const port = 3004;
 app.listen(port, () => console.log(`now listening on port ${port}`));
