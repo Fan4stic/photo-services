@@ -1,9 +1,11 @@
 import React from 'react';
+import Title from './Title.jsx';
 import Track from './Track.jsx';
 import Modal from './Modal.jsx';
 import Thumbnail from './Thumbnail.jsx';
 import axios from 'axios';
 import '../style/main.css';
+
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -103,6 +105,7 @@ class Carousel extends React.Component {
   render() {
     return(
       <div className="container">
+        <Title />
         <Track photos={this.state.photos} openModal={this.openModal} setMainModal={this.setMainModal}/>
         {this.state.modalActive && <Modal photos={this.state.photos} modalPhoto={this.state.modalPhoto} setMainModal={this.setMainModal} closeModal={this.closeModal} nextPhoto={this.nextPhoto} prevPhoto={this.prevPhoto} photoChunker={this.photoChunker} helpfulActive={this.state.helpfulActive} notHelpfulActive={this.state.notHelpfulActive} reportActive={this.state.reportActive} toggleHelpfulActive={this.toggleHelpfulActive} toggleNotHelpfulActive={this.toggleNotHelpfulActive} toggleReportActive={this.toggleReportActive}/>}
       </div>
