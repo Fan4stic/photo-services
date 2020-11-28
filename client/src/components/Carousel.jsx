@@ -12,7 +12,9 @@ class Carousel extends React.Component {
       photos: [],
       modalActive: false,
       modalPhoto: {},
-      helpActiveButton: false
+      helpfulActive: false,
+      notHelpfulActive: false,
+      reportActive: false
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -20,7 +22,9 @@ class Carousel extends React.Component {
     this.nextPhoto = this.nextPhoto.bind(this);
     this.prevPhoto = this.prevPhoto.bind(this);
     this.photoChunker = this.photoChunker.bind(this);
-    this.helpActive = this.helpActive.bind(this);
+    this.toggleHelpfulActive = this.toggleHelpfulActive.bind(this);
+    this.toggleNotHelpfulActive = this.toggleNotHelpfulActive.bind(this);
+    this.toggleReportActive = this.toggleReportActive.bind(this);
   }
 
   componentDidMount() {
@@ -80,8 +84,19 @@ class Carousel extends React.Component {
     }
     return result
 }
-  helpActive() {
-    this.setState({helpActiveButton: !helpActiveButton})
+  toggleHelpfulActive() {
+    var helpfulActive = this.state.helpfulActive;
+    this.setState({helpfulActive: !helpfulActive})
+  }
+
+  toggleNotHelpfulActive() {
+    var notHelpfulActive = this.state.notHelpfulActive;
+    this.setState({notHelpfulActive: !notHelpfulActive})
+  }
+
+  toggleReportActive() {
+    var reportActive = this.state.reportActive;
+    this.setState({reportActive: !reportActive})
   }
 
 
@@ -89,7 +104,7 @@ class Carousel extends React.Component {
     return(
       <div className="container">
         <Track photos={this.state.photos} openModal={this.openModal} setMainModal={this.setMainModal}/>
-        {this.state.modalActive && <Modal photos={this.state.photos} modalPhoto={this.state.modalPhoto} setMainModal={this.setMainModal} closeModal={this.closeModal} nextPhoto={this.nextPhoto} prevPhoto={this.prevPhoto} nthElement={this.nthElement} photoChunker={this.photoChunker} helpActive={this.helpActive} helpActiveButton={this.state.helpActiveButton}/>}
+        {this.state.modalActive && <Modal photos={this.state.photos} modalPhoto={this.state.modalPhoto} setMainModal={this.setMainModal} closeModal={this.closeModal} nextPhoto={this.nextPhoto} prevPhoto={this.prevPhoto} photoChunker={this.photoChunker} helpfulActive={this.state.helpfulActive} notHelpfulActive={this.state.notHelpfulActive} reportActive={this.state.reportActive} toggleHelpfulActive={this.toggleHelpfulActive} toggleNotHelpfulActive={this.toggleNotHelpfulActive} toggleReportActive={this.toggleReportActive}/>}
       </div>
     )
   }

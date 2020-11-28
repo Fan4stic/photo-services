@@ -3,21 +3,24 @@ const { addPhoto } = require('./controllers/controllers');
 const Photo = require('./models/Photo');
 const dbConnection = require('./db/connection');
 const restaurant_id_arr = [1, 2, 3, 4, 5]
-const picModifiers = ['sushi', 'burrito', 'chicken', 'ramen', 'dessert']
+const picModifiers = ['sushi', 'teriyaki', 'beer', 'ramen', 'dessert', 'sake', 'restaurant', 'wine', 'rice', 'tempura', 'tofu', 'udon', 'soba', 'yakitori', 'curry', 'tonkatsu', 'sashimi', 'tea']
+
 
 const createPhotoRecord = () => {
   let randomRestaurant_id = Math.floor(Math.random()* 5)
   let randomFriends = Math.floor(Math.random()* 101);
   let randomReviews = Math.floor(Math.random()* 101);
+  let randomPic = Math.floor(Math.random()* 19)
+
   let record = {
-    "url": `https://loremflickr.com/320/240/${picModifiers[randomRestaurant_id]}`,
+    "url": `https://loremflickr.com/320/240/${picModifiers[randomPic]}`,
     "description": `${faker.lorem.sentence()}`,
     "date": `${faker.date.past()}`,
     "user": {
       "username": `${faker.internet.userName()}`,
       "friends": randomFriends,
       "reviews": randomReviews,
-      "avatar": `${faker.image.avatar()}`,
+      "avatar": `https://i.pravatar.cc/50`,
       "yelpElite": !! Math.floor(Math.random() * 2)
     },
     "restaurant_id": restaurant_id_arr[randomRestaurant_id]

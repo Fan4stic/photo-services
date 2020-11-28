@@ -12,7 +12,7 @@ const Modal = (props) => {
         </svg>
       </div>
       <div className="modal-content">
-        <LeftColumn setMainModal={props.setMainModal} photos={props.photos} modalPhoto={props.modalPhoto} nextPhoto={props.nextPhoto}  prevPhoto={props.prevPhoto} helpActive={props.helpActive} helpActiveButton={props.helpActiveButton}/>
+        <LeftColumn setMainModal={props.setMainModal} photos={props.photos} modalPhoto={props.modalPhoto} nextPhoto={props.nextPhoto}  prevPhoto={props.prevPhoto} helpfulActive={props.helpfulActive} notHelpfulActive={props.notHelpfulActive} reportActive={props.reportActive} toggleHelpfulActive={props.toggleHelpfulActive} toggleNotHelpfulActive={props.toggleNotHelpfulActive} toggleReportActive={props.toggleReportActive}/>
         <RightColumn photos={props.photos} setMainModal={props.setMainModal} photoChunker={props.photoChunker}/>
       </div>
     </div>

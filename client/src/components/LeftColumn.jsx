@@ -7,7 +7,7 @@ const LeftColumn = (props) => {
   return (
     <div className="modal-column-left">
       <Previous photos={props.photos} modalPhoto={props.modalPhoto} setMainModal={props.setMainModal} prevPhoto={props.prevPhoto}/>
-      <ModalMain modalPhoto={props.modalPhoto} helpActive={props.helpActive} helpActiveButton={props.helpActiveButton}/>
+      <ModalMain modalPhoto={props.modalPhoto} helpfulActive={props.helpfulActive} notHelpfulActive={props.notHelpfulActive} reportActive={props.reportActive} toggleHelpfulActive={props.toggleHelpfulActive} toggleNotHelpfulActive={props.toggleNotHelpfulActive} toggleReportActive={props.toggleReportActive}/>
       <Next photos={props.photos} modalPhoto={props.modalPhoto} setMainModal={props.setMainModal} nextPhoto={props.nextPhoto}/>
     </div>
   )
