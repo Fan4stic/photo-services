@@ -1,0 +1,825 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+
+.cursor {
+   /*Add a pointer when hovering over the thumbnail images*/
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* five columns side by side */
+.column {
+  float: left;
+  width: 20%;
+  flex-grow: 1;
+  padding: 3px;
+  border-radius: 25px;
+}
+
+/* Add a transparency effect for thumnbail images
+.demo {
+  opacity: 0.6;
+}*/
+
+.active,
+.demo:hover {
+  opacity: 0.6;
+}
+/* The Modal (background) */
+.modal {
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /* overflow: auto; Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.noModal {
+  display:none;
+}
+
+/* Modal Content/Box */
+.modal-content {
+/*
+border-radius: 25px;
+  background-color: #fefefe;
+  margin: auto;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  */
+  /*flex item properties*/
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #fefefe;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  margin-top: 0px;
+  border-radius: 4px;
+}
+
+/* The Close Button */
+.close {
+  color: #fff;
+  fill: #fff;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+
+
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: space-around;
+  align-items: flex-start;
+
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 95%;
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modal-column-left {
+  /*
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  float: left;
+  height: 100%;
+  width: 67%;
+  background-color: black;
+  align-content: stretch;
+  */
+
+  /*flex item properties*/
+  order: 0;
+  flex: 3 1 auto;
+  align-self: stretch;
+  background-color: black;
+  border-radius: 25px;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+
+}
+
+.modal-column-left-main {
+  /*
+  margin: auto;
+  display: inline-block;
+  */
+
+  /*flex item properties*/
+  order: 1;
+  flex: 8 1 auto;
+  align-self: stretch;
+
+  /*container properties*/
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.modal-column-left-main-photo {
+  height: 100%;
+  width: 100%;
+}
+
+.modal-column-left-main-info {
+  /*block item properties*/
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  background: rgba(0,0,0,.7);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-prev {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  background-color: black;
+  color: white;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-column-left-prev-arrow:hover,
+.modal-column-left-prev-arrow:focus {
+  cursor: pointer;
+}
+
+.modal-column-left-next-arrow:hover,
+.modal-column-left-next-arrow:focus {
+  cursor: pointer;
+}
+
+.modal-column-left-next {
+  /*flex item properties*/
+  order: 2;
+  flex: 1 1 auto;
+  align-self: stretch;
+  background-color: black;
+  color: white;
+
+  /*flex container properties*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.modal-column-left-info-upper {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 8px;
+  margin: 4px;
+  border-bottom: 1px #eeeeef solid;
+}
+.modal-column-left-info-upper-description {
+  /*flex properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  padding: 4px 4px 0px 4px;
+}
+
+.modal-column-left-info-upper-date {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  opacity: 0.5;
+  padding: 0px 4px 4px 4px;
+}
+
+.modal-column-left-info-lower {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 8px;
+  border-bottom: 3px;
+  margin: 4px;
+
+}
+
+.modal-column-left-info-lower-user {
+  /*flex item properties*/
+  order: 0;
+  flex: 2 0 50%;
+  align-self: stretch;
+  color:#fff;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-info-lower-user-avatar {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: 0px 10px 10px 10px;
+}
+
+.modal-column-left-info-lower-user-stats {
+  /*flex item properties*/
+  order: 0;
+  flex: 2 1 auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-user-stats-username {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  padding-bottom: 4px;
+}
+
+.modal-column-left-info-lower-user-stats-icons {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  justify-content: stretch;
+  fill: rgb(117, 114, 128);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-user-stats-icons-friends {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.friends-icon {
+  margin-right: 4px;
+}
+
+.reviews-icon {
+   margin-right: 4px;
+   margin-left: 4px;
+ }
+
+.modal-column-left-info-lower-user-stats-icons-reviews {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-column-left-info-lower-user-stats-elite {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: flex-start;
+  color: #ff523d;
+}
+
+.modal-column-left-info-lower-user-stats-elite:hover {
+
+  cursor: pointer;
+}
+
+
+.modal-column-left-info-lower-share-report {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 15%;
+  align-self: center;
+  fill: rgb(117, 114, 128);
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.report-icon {
+  fill: rgb(117, 114, 128)
+}
+
+.report-icon:hover,
+.report-icon:focus {
+  fill: red;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.report-icon-active {
+  fill: red;
+}
+.report-icon-active:hover {
+  cursor: pointer;
+}
+
+
+.share-icon:hover,
+.share-icon:focus {
+  fill:#fff;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 35%;
+  align-self: flex-center;
+  fill: rgb(117, 114, 128);
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: bold;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful {
+  /*flex container properties*/
+  display: flex;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #757280;
+  background: transparent;
+  box-shadow: none;
+  white-space: nowrap;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful-active {
+    /*flex container properties*/
+    display: flex;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #757280;
+    background: #fff;
+    box-shadow: none;
+    white-space: nowrap;
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful-active:hover {
+  cursor: pointer;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isHelpful:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful {
+  /*flex container properties*/
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #757280;
+  background: transparent;
+  box-shadow: none;
+  white-space: nowrap;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful-active {
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #757280;
+  background: #fff;
+  box-shadow: none;
+  white-space: nowrap;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.modal-column-left-info-lower-helpful-nothelpful-isNotHelpful-active:hover {
+  cursor: pointer;
+}
+
+.modal-column-right{
+  /*flex item properties*/
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+  padding: 6px 6px 6px 6px;
+  border-radius: 4px;
+}
+
+
+
+.modal-column-right-header {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+  /*flex container properties*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 16px 16px 8px 16px
+}
+
+.modal-column-right-header-title {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  margin: 0px;
+  font-size: 20px;
+}
+
+.modal-column-right-header-subtitle {
+  /*flex item properties*/
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  color: #00838f;
+  font-size: 14px;
+}
+
+.modal-column-right-header-subtitle:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ModalFlexPhotosContainer {
+  /*flex item properties*/
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+
+  /*flex container properties*/
+  display: flex;
+  overflow-y: scroll;
+  padding: 16px 16px 0px 16px;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  max-width: inherit;
+}
+
+.ModalFlexPhotos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.rectangle {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.square {
+  display: flex;
+  margin: 4px;
+  padding: 4px;
+  order: 0;
+  width: 100%;
+  align-self: auto;
+  border-radius: 4px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+  border-bottom: 8px solid red;
+}
+
+#title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#yelpicon {
+  padding: 1%;
+  margin: 1%;
+  border: 1%;
+}
+
+#searchbar {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#searchbarinput {
+  flex: 1 0 auto;
+  box-shadow: 3px 3px 3px 9px #ccc;
+  border-radius: 4px;
+  padding: 2%;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+#dropdownrow {
+  margin-top: 2%;
+}
+
+#titlebuttons {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-evenly;
+}
+
+.titlebuttons:hover {
+  cursor: pointer;
+}
+
+#titlebuttons-business {
+  background-color: transparent;
+  border: 0px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  flex: 2 0 auto;
+}
+
+#titlebuttons-writeReview{
+  background-color: transparent;
+  border: 0px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  flex: 2 0 auto;
+}
+
+#titlebuttons-login {
+
+
+  background-image: none;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12px;
+  border-radius: 4px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  flex: 1 0 auto;
+}
+
+#titlebuttons-signup {
+  background: #f43939;
+  border: 1px solid #f43939;
+  color: #fff;
+  background-image: none;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12px;
+  border-radius: 4px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  flex: 1 0 auto;
+}
