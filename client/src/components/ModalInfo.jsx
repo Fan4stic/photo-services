@@ -35,7 +35,7 @@ const ModalInfo = (props) => {
                 {`${props.info.user.friends}`}
               </div>
               <div className="modal-column-left-info-lower-user-stats-icons-reviews">
-                <svg className="reviews-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="icon_svg">
+                <svg className="reviews-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" >
                   <path d="M11.23 1A3.77 3.77 0 0115 4.77v6.46A3.77 3.77 0 0111.23 15H4.77A3.77 3.77 0 011 11.23V4.77A3.77 3.77 0 014.77 1h6.46zM13 11.23V4.77A1.77 1.77 0 0011.23 3H4.77A1.77 1.77 0 003 4.77v6.46c0 .978.792 1.77 1.77 1.77h6.46A1.77 1.77 0 0013 11.23zm-2.18-4.34a.51.51 0 01.41.34.51.51 0 01-.13.51L9.91 8.9l.29 1.61a.49.49 0 01-.2.49.51.51 0 01-.3.12.46.46 0 01-.23-.06L8 10.29l-1.47.77a.5.5 0 01-.72-.53l.28-1.63L4.9 7.74a.51.51 0 01-.13-.51.51.51 0 01.41-.34l1.64-.24.73-1.49a.52.52 0 01.9 0l.73 1.49 1.64.24z"/>
                 </svg>
                 {`${props.info.user.reviews}`}

@@ -51,9 +51,9 @@
 /* five columns side by side */
 .column {
   float: left;
-  width: 20%;
+  width: 25%;
   flex-grow: 1;
-  padding: 3px;
+  padding: 1px;
   border-radius: 25px;
 }
 
@@ -73,7 +73,7 @@
   display: flex;
   flex-direction: column;
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 999; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -392,12 +392,12 @@ border-radius: 25px;
 }
 
 .friends-icon {
-  margin-right: 4px;
+  margin-right: 3px;
 }
 
 .reviews-icon {
-   margin-right: 4px;
-   margin-left: 4px;
+   margin-right: 3px;
+   margin-left: 3px;
  }
 
 .modal-column-left-info-lower-user-stats-icons-reviews {

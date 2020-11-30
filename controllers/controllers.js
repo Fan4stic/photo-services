@@ -2,7 +2,7 @@ const Photo = require('../models/Photo');
 
 module.exports.getPhotos = async (req, res, next) => {
   try {
-    const photos = await Photo.find();
+    const photos = await Photo.find(req.params);
     return res.status(200).json({
       success: true,
       count: photos.length,
@@ -15,9 +15,6 @@ module.exports.getPhotos = async (req, res, next) => {
     })
   }
 };
-
-
-
 
 module.exports.addPhoto = async (req, res, next) => {
   try{
