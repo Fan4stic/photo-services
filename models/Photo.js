@@ -19,7 +19,7 @@ const PhotoSchema = new mongoose.Schema({
     "avatar": String,
     "yelpElite": Boolean
   },
-  restaurant_id: {
+  resID: {
     type: Number
   }
 });
