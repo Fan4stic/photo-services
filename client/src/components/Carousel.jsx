@@ -89,11 +89,17 @@ class Carousel extends React.Component {
   toggleHelpfulActive() {
     var helpfulActive = this.state.helpfulActive;
     this.setState({helpfulActive: !helpfulActive})
+    if(this.state.notHelpfulActive) {
+      this.setState({notHelpfulActive: false});
+    }
   }
 
   toggleNotHelpfulActive() {
     var notHelpfulActive = this.state.notHelpfulActive;
     this.setState({notHelpfulActive: !notHelpfulActive})
+    if(this.state.helpfulActive) {
+      this.setState({helpfulActive: false});
+    }
   }
 
   toggleReportActive() {
