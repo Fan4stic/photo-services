@@ -30,8 +30,8 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/restaurants/:resID/photos')
-    .then( ({data}) => this.setState({photos: data.photos.slice(0,18)}))
+    axios.get('/api/restaurants/2/photos')
+    .then( ({data}) => this.setState({photos: data.photos.slice(0,42)}) )
   }
 
   openModal () {
