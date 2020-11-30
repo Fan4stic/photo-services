@@ -12,7 +12,8 @@ const createPhotoRecord = () => {
   let randomRestaurant_id = Math.floor(Math.random()* 5)
   let randomFriends = Math.floor(Math.random()* 101);
   let randomReviews = Math.floor(Math.random()* 101);
-  let randomPic = Math.floor(Math.random()* 21)
+  let randomPic = Math.floor(Math.random()* 20)
+  let randomAvatar = Math.floor(Math.random() * 5)
 
   let record = {
     "url": `${s3photos[randomPic]}`,
@@ -22,10 +23,10 @@ const createPhotoRecord = () => {
       "username": `${faker.internet.userName()}`,
       "friends": randomFriends,
       "reviews": randomReviews,
-      "avatar": avatars[randomRestaurant_id],
+      "avatar": avatars[randomAvatar],
       "yelpElite": !! Math.floor(Math.random() * 2)
     },
-    "restaurant_id": restaurant_id_arr[randomRestaurant_id]
+    "resID": restaurant_id_arr[randomRestaurant_id]
   }
   Photo.create(record);
 };
